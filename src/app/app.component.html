@@ -1,4 +1,42 @@
-<button class="btn btn-danger">Prueba botón</button>
-<ul>
-  <li *ngFor="let client of clientsList"> Name: {{client.client_data[0].mail}}</li>
-</ul>
+
+
+<div class="main">
+
+  <div class="input-group">
+    <input type="text" class="form-control rounded-right" placeholder="Buscar por nombres o DNI...">
+    <div class="input-group-append">
+      <button class="btn btn-dark rounded-0 rounded-end" type="button">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+  <br>
+  <button class="btn btn-primary text-white btn-lg container text-center">AGREGAR CLIENTES</button>
+</div>
+
+
+<section class='d-flex flex-wrap p-0 ml-0 mr-0 justify-content-center'>
+  <article class='card col-12 col-md-6 col-lg-2 m-3' *ngFor="let client of clientsList">
+    <img src="{{ client.client_data[0].houses_customer[0].image }}">
+    <section class=''>
+      <p class="text-center m-1 p-1 text-dark h5">
+        {{ client.client_data[0].person_identification[0].fisrt_name }}
+        {{ client.client_data[0].person_identification[0].father_surname }}
+        - {{ client.client_data[0].person_identification[0].dni }}</p>
+        <div class="d-flex">
+          <button type="button" class="btn rounded-0 btn-success btn-lg container">
+            <i class="bi bi-eye text-dark"></i>
+          </button>
+          <button type="button" class="btn rounded-0 btn-warning btn-lg container">
+            <i class="bi bi-pencil-square text-dark"></i>
+          </button>
+          <button type="button" class="btn rounded-0  btn-danger btn-lg container">
+            <i class="bi bi-trash text-dark"></i>
+          </button>
+        </div>
+        <button type="button" class="btn rounded-0 rounded-bottom btn-dark btn-lg container">
+          DESCARGAR PDF
+        </button>
+    </section>
+  </article>
+</section>
